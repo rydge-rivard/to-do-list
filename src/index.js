@@ -3,9 +3,16 @@ import {manipulateDOM} from './dom.js'
 const loadPage = (function () {
     const htmlContent = document.querySelector('#content')
 
-    manipulateDOM.addToHTML (manipulateDOM.createContainer ('header'), htmlContent);
-    manipulateDOM.addToHTML (manipulateDOM.createContainer ('sidebar'), htmlContent);
-    manipulateDOM.addToHTML (manipulateDOM.createContainer ('display'), htmlContent);
+    const headerContent = manipulateDOM.createContainer ('header');
+    const sidebarContent = manipulateDOM.createContainer ('sidebar');
+    const displayContent = manipulateDOM.createContainer ('display');
+
+    manipulateDOM.addToHTML (headerContent, htmlContent);
+    manipulateDOM.addToHTML (sidebarContent, htmlContent);
+    manipulateDOM.addToHTML (displayContent, htmlContent);
+
+    manipulateDOM.addToHTML (manipulateDOM.createTextElement ('span', 'To Do List'), headerContent);
+    manipulateDOM.addToHTML (manipulateDOM.createTextElement ('button', 'Add Project'), headerContent)
 
 })();
 
