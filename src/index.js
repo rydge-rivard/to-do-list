@@ -1,5 +1,7 @@
 import {manipulateDOM} from './dom.js'
-import {createProject} from './projects.js'
+import {projectMod} from './projects.js'
+import {taskMod} from './tasks.js'
+
 
 
 const loadPage = (function () {
@@ -19,9 +21,17 @@ const loadPage = (function () {
     manipulateDOM.addToHTML (manipulateDOM.createTextElement ('button', 'Add Project'), headerContent);
 
     manipulateDOM.addToHTML (manipulateDOM.createTextElement ('div', 'Projects'), sidebarContent);
-    manipulateDOM.addToHTML (manipulateDOM.createTextElement ('div', 'Today'), sidebarContent);
 
-    manipulateDOM.addToHTML (manipulateDOM.createTextElement ('h3', 'Today'), displayContent)
+    const tasks = [];
+    const clean = taskMod.createTask('Clean', 'clean your room', Date(), 'Low');
+    const surf = taskMod.createTask('Surf', 'high tide at 3PM', Date(), 'High');
+    taskMod.assignTask(clean, tasks);
+    taskMod.assignTask(surf, tasks);
 
+    const today = projectMod.createProject('Today', tasks);
+    console.log(today);
+
+    manipulateDOM.addToHTML (manipulateDOM.createTextElement ('div', today.title), sidebarContent);
+    manipulateDOM.addToHTML (manipulateDOM.createTextElement ('h3', today.title), displayContent)
 })();
 
