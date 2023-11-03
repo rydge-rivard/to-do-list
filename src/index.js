@@ -1,7 +1,7 @@
 import {manipulateDOM} from './dom.js'
 import {projectMod} from './projects.js'
 import {taskMod} from './tasks.js'
-
+import {viewTask} from './view-task.js'
 
 
 const loadPage = (function () {
@@ -33,6 +33,8 @@ const loadPage = (function () {
     manipulateDOM.appendProj (today, sidebarContent, 'div');
     manipulateDOM.appendProj (today, displayContent, 'h3');
     manipulateDOM.appendAllTasks (today.tasks, displayContent, 'div');
+
+    viewTask.populateFields (clean);
     
 })();
 
