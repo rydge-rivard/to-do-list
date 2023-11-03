@@ -33,12 +33,12 @@ button {
 .grid {
     display: grid;
     grid-template-columns: minmax(auto, 220px) 3fr;
+    grid-template-rows: minmax(750px, 1fr);
 }
 
 .sidebar {
     background-color: #F7F7F7;
     padding: 32px;
-    height: 800px;
 }
 
 .display {

@@ -1,5 +1,5 @@
 export {manipulateDOM} 
-import { viewTask } from "./view-task";
+import { taskMod } from "./tasks.js";
 
 const manipulateDOM = (function () {
     function createTextElement (element, text) {
@@ -24,25 +24,23 @@ const manipulateDOM = (function () {
         return newElement;
     }
 
+    //potentially split this into tasks.js
     function appendAllTasks (taskArr, location) {
         taskArr.forEach(task => {
             const element = appendProj (task, location, 'div');
-            bindEvents (element, 'click', () => createActiveCont (task, element));
+            bindEvents (element, 'click', () => toggleDetails (task, element));
         });
     }
-
-    // function appendTask (task, location) {
-    //     appendProj (task.title, location, 'div');
-    // }
 
     function bindEvents (element, event, action) {
         element.addEventListener(event, action);
     }
 
-    function createActiveCont (obj, location) {
+    //circle back to this and split function int tasks.js
+    function toggleDetails (obj, location) {
         const active = manipulateDOM.createContainer ('active', 'div');
         manipulateDOM.addToHTML (active, location);
-        viewTask.populateFields (obj, active);
+        taskMod.addTaskData (obj, active);
         return obj;
     }
 
