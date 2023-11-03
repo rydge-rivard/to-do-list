@@ -1,6 +1,7 @@
 import {useDOM} from './dom.js'
 import {projectMod} from './projects.js'
 import {taskMod} from './tasks.js'
+import {modalMod} from './modal.js'
 
 const loadPage = (function () {
     const htmlContent = document.querySelector ('#content')
@@ -35,7 +36,7 @@ const loadPage = (function () {
     useDOM.appendProj (today, displayContent, 'h3');
     useDOM.appendAllTasks (today.tasks, displayContent, 'div');
 
-    useDOM.bindEvents (addTaskBtn, 'click', () => console.log('click'));
+    useDOM.bindEvents (addTaskBtn, 'click', () => modalMod.showModal());
 
     
 })();
