@@ -1,4 +1,6 @@
 import {manipulateDOM} from './dom.js'
+import {createProject} from './projects.js'
+
 
 const loadPage = (function () {
     const htmlContent = document.querySelector('#content')
@@ -16,9 +18,10 @@ const loadPage = (function () {
     manipulateDOM.addToHTML (manipulateDOM.createTextElement ('h2', 'To Do List'), headerContent);
     manipulateDOM.addToHTML (manipulateDOM.createTextElement ('button', 'Add Project'), headerContent);
 
-    manipulateDOM.addToHTML (manipulateDOM.createTextElement ('span', 'Projects'), sidebarContent);
+    manipulateDOM.addToHTML (manipulateDOM.createTextElement ('div', 'Projects'), sidebarContent);
+    manipulateDOM.addToHTML (manipulateDOM.createTextElement ('div', 'Today'), sidebarContent);
 
-    manipulateDOM.addToHTML (manipulateDOM.createTextElement ('div', 'Today'), displayContent)
+    manipulateDOM.addToHTML (manipulateDOM.createTextElement ('h3', 'Today'), displayContent)
 
 })();
 
