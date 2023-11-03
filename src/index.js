@@ -29,12 +29,10 @@ const loadPage = (function () {
     taskMod.assignTask (surf, tasks);
 
     const today = projectMod.createProject ('Today', tasks);
-    console.log (today);
 
     manipulateDOM.appendProj (today, sidebarContent, 'div');
     manipulateDOM.appendProj (today, displayContent, 'h3');
-    manipulateDOM.appendProj (today, displayContent, 'div');
-
+    manipulateDOM.appendAllTasks (today.tasks, displayContent, 'div');
     
 })();
 

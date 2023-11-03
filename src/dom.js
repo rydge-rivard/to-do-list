@@ -17,10 +17,20 @@ const manipulateDOM = (function () {
         return container;
     };
 
-    function appendProj (obj, sidebar, element) {
+    function appendProj (obj, location, element) {
         const newElement = createTextElement (element, obj.title)
-        addToHTML (newElement, sidebar);
+        addToHTML (newElement, location);
         return newElement;
+    }
+
+    function appendAllTasks (taskArr, location) {
+        taskArr.forEach(task => {
+            appendProj (task, location, 'div');
+        });
+    }
+
+    function appendTask (task, location) {
+        appendProj (task.title, location, 'div');
     }
 
     return {
@@ -28,6 +38,7 @@ const manipulateDOM = (function () {
         addToHTML: addToHTML,
         createContainer, createContainer,
         appendProj: appendProj,
+        appendAllTasks: appendAllTasks,
     }
 
 })();
