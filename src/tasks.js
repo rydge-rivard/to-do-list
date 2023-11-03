@@ -1,5 +1,5 @@
 export {taskMod};
-import {manipulateDOM} from './dom.js'
+import {useDOM} from './dom.js'
 
 
 const taskMod = (function () {
@@ -19,7 +19,7 @@ const taskMod = (function () {
     function addTaskData (obj, parent) {
         for (const key in obj) {
             const field = `${key}: ${obj[key]}`;
-            manipulateDOM.addToHTML (manipulateDOM.createTextElement ('div', field), parent);
+            useDOM.addToHTML (useDOM.createTextElement ('div', field), parent);
         }
     }
 

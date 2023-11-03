@@ -1,9 +1,15 @@
-export {manipulateDOM} 
+export {useDOM} 
 import { taskMod } from "./tasks.js";
 
-const manipulateDOM = (function () {
+const useDOM = (function () {
     function createTextElement (element, text) {
         const newElement = document.createElement(element);
+        newElement.textContent = text;
+        return newElement;
+    }
+    function createClassTextElement (element, text, cssClass) {
+        const newElement = document.createElement(element);
+        newElement.classList.add(cssClass);
         newElement.textContent = text;
         return newElement;
     }
@@ -38,8 +44,8 @@ const manipulateDOM = (function () {
 
     //circle back to this and split function int tasks.js
     function toggleDetails (obj, location) {
-        const active = manipulateDOM.createContainer ('active', 'div');
-        manipulateDOM.addToHTML (active, location);
+        const active = useDOM.createContainer ('active', 'div');
+        useDOM.addToHTML (active, location);
         taskMod.addTaskData (obj, active);
         return obj;
     }
@@ -50,6 +56,7 @@ const manipulateDOM = (function () {
         createContainer, createContainer,
         appendProj: appendProj,
         appendAllTasks: appendAllTasks,
+        createClassTextElement: createClassTextElement,
     }
 
 })();
