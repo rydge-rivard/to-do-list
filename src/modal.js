@@ -1,5 +1,6 @@
 export {modalMod}
 import {useDOM} from "./dom";
+import {taskMod} from "./tasks";
 
 const modalMod = (function () {
 
@@ -15,19 +16,26 @@ const modalMod = (function () {
 
     function confirmTask (event) {
         event.preventDefault();
-        loopInputs (getInputs());
-        console.log ('create task function')
+        createObj ();
     }
 
-    function getInputs () {
+    // function getInputs () {
+    //     const inputs = dialog.querySelectorAll('input')
+    //     return inputs;
+    // }
+
+    function sortInputs () {
         const inputs = dialog.querySelectorAll('input')
-        return inputs;
+        const objArr = [];
+        inputs.forEach(input => objArr.push (input.value));
+        return objArr;
     }
 
-    function loopInputs (inputArr) {
-        inputArr.forEach(input => {
-            console.log (input.value)
-        });
+    function createObj () {
+        const inputValues = sortInputs();
+        const newTask = taskMod.createTask(inputValues[0]);
+        console.log (newTask);
+        return newTask;
     }
 
     return {
