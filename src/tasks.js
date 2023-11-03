@@ -12,6 +12,12 @@ const taskMod = (function () {
         taskArr.push(taskObj);
     }
 
+    function appendTask (task, location) {
+        const element = useDOM.appendProj (task, location, 'div');
+        return element;
+        // bindEvents (element, 'click', () => toggleDetails (task, element));
+    }
+
     //create content divs on task create that are display = none
     //toggle display = block on click
     //on task edit, the item is removed and re-added to array?
@@ -27,6 +33,7 @@ const taskMod = (function () {
         createTask: createTask,
         assignTask: assignTask,
         addTaskData: addTaskData,
+        appendTask: appendTask,
     }
 
 })();

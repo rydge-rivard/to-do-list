@@ -18,6 +18,7 @@ const modalMod = (function () {
     function confirmTask (event) {
         event.preventDefault();
         newTask = createTask ();
+        taskMod.appendTask (newTask, document.querySelector('.display'));
         console.log(newTask);
     }
 
