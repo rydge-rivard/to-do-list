@@ -25,12 +25,22 @@ const manipulateDOM = (function () {
 
     function appendAllTasks (taskArr, location) {
         taskArr.forEach(task => {
-            appendProj (task, location, 'div');
+            const element = appendProj (task, location, 'div');
+            bindEvents (element, 'click', () => log (task));
         });
     }
 
     function appendTask (task, location) {
         appendProj (task.title, location, 'div');
+    }
+
+    function bindEvents (element, event, action) {
+        element.addEventListener(event, action);
+    }
+
+    function log (obj) {
+        console.log (obj.title);
+        console.log (obj.description);
     }
 
     return {
