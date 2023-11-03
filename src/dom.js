@@ -50,6 +50,11 @@ const useDOM = (function () {
         return obj;
     }
 
+    function renderDisplay (project, parent) {
+        useDOM.appendProj (project, parent, 'h3');
+        useDOM.appendAllTasks (project.tasks, parent, 'div');
+    }
+
     return {
         createTextElement: createTextElement,
         addToHTML: addToHTML,
@@ -58,6 +63,7 @@ const useDOM = (function () {
         appendAllTasks: appendAllTasks,
         createClassTextElement: createClassTextElement,
         bindEvents: bindEvents,
+        renderDisplay: renderDisplay,
     }
 
 })();

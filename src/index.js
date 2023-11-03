@@ -24,6 +24,7 @@ const loadPage = (function () {
 
     useDOM.addToHTML (useDOM.createTextElement ('div', 'Projects'), sidebarContent);
 
+    const projects = [];
     const tasks = [];
     const clean = taskMod.createTask ('Clean', 'clean your room', Date(), 'Low', tasks.length);
     taskMod.assignTask (clean, tasks);
@@ -33,8 +34,7 @@ const loadPage = (function () {
     const today = projectMod.createProject ('Today', tasks);
 
     useDOM.appendProj (today, sidebarContent, 'div');
-    useDOM.appendProj (today, displayContent, 'h3');
-    useDOM.appendAllTasks (today.tasks, displayContent, 'div');
+    useDOM.renderDisplay (today, displayContent);
 
     useDOM.bindEvents (addTaskBtn, 'click', () => modalMod.showModal());
     
