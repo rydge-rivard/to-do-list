@@ -11,16 +11,23 @@ const manipulateDOM = (function () {
         parent.appendChild(element);
     }
 
-    function createContainer (cssClass) {
-        const container = document.createElement('div');
+    function createContainer (cssClass, element) {
+        const container = document.createElement(element);
         container.classList.add(cssClass);
         return container;
     };
+
+    function appendProj (obj, sidebar, element) {
+        const newElement = createTextElement (element, obj.title)
+        addToHTML (newElement, sidebar);
+        return newElement;
+    }
 
     return {
         createTextElement: createTextElement,
         addToHTML: addToHTML,
         createContainer, createContainer,
+        appendProj: appendProj,
     }
 
 })();
