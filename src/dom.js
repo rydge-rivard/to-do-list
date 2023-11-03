@@ -26,7 +26,7 @@ const manipulateDOM = (function () {
     function appendAllTasks (taskArr, location) {
         taskArr.forEach(task => {
             const element = appendProj (task, location, 'div');
-            bindEvents (element, 'click', () => log (task));
+            bindEvents (element, 'click', () => createActiveCont (task, element));
         });
     }
 
@@ -38,9 +38,9 @@ const manipulateDOM = (function () {
         element.addEventListener(event, action);
     }
 
-    function log (obj) {
-        console.log (obj.title);
-        console.log (obj);
+    function createActiveCont (obj, location) {
+        manipulateDOM.addToHTML (manipulateDOM.createContainer ('active', 'div'), location);
+        return obj;
     }
 
     return {

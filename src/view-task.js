@@ -2,9 +2,11 @@ import {manipulateDOM} from './dom.js'
 export {viewTask}
 
 const viewTask = (function () {
-    function populateFields (obj) {
+    function populateFields (obj, parent) {
         for (const key in obj) {
-            console.log(`${key}: ${obj[key]}`)
+            const field = `${key}: ${obj[key]}`;
+            manipulateDOM.addToHTML (manipulateDOM.createTextElement ('div', field),
+            active);
         }
     }
 

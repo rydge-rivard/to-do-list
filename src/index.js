@@ -34,7 +34,7 @@ const loadPage = (function () {
     manipulateDOM.appendProj (today, displayContent, 'h3');
     manipulateDOM.appendAllTasks (today.tasks, displayContent, 'div');
 
-    viewTask.populateFields (clean);
+    viewTask.populateFields (clean, displayContent);
     
 })();
 
