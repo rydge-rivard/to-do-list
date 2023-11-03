@@ -1,4 +1,5 @@
 export {manipulateDOM} 
+import { viewTask } from "./view-task";
 
 const manipulateDOM = (function () {
     function createTextElement (element, text) {
@@ -40,6 +41,7 @@ const manipulateDOM = (function () {
 
     function createActiveCont (obj, location) {
         manipulateDOM.addToHTML (manipulateDOM.createContainer ('active', 'div'), location);
+        viewTask.populateFields (obj, location);
         return obj;
     }
 

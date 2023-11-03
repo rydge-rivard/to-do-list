@@ -6,7 +6,7 @@ const viewTask = (function () {
         for (const key in obj) {
             const field = `${key}: ${obj[key]}`;
             manipulateDOM.addToHTML (manipulateDOM.createTextElement ('div', field),
-            active);
+            parent);
         }
     }
 
