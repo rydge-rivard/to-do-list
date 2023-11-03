@@ -40,8 +40,9 @@ const manipulateDOM = (function () {
     }
 
     function createActiveCont (obj, location) {
-        manipulateDOM.addToHTML (manipulateDOM.createContainer ('active', 'div'), location);
-        viewTask.populateFields (obj, location);
+        const active = manipulateDOM.createContainer ('active', 'div');
+        manipulateDOM.addToHTML (active, location);
+        viewTask.populateFields (obj, active);
         return obj;
     }
 
