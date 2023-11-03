@@ -57,6 +57,7 @@ const useDOM = (function () {
         appendProj: appendProj,
         appendAllTasks: appendAllTasks,
         createClassTextElement: createClassTextElement,
+        bindEvents: bindEvents,
     }
 
 })();

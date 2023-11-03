@@ -18,8 +18,8 @@ const loadPage = (function () {
     useDOM.addToHTML (useDOM.createTextElement ('h2', 'To Do List'), headerContent);
     useDOM.addToHTML (useDOM.createClassTextElement 
         ('button', 'Add Project', 'add-project'), headerContent);
-    useDOM.addToHTML (useDOM.createClassTextElement 
-        ('button', 'Add Task', 'add-task'), headerContent);
+    const addTaskBtn = useDOM.createClassTextElement ('button', 'Add Task', 'add-task');
+    useDOM.addToHTML (addTaskBtn, headerContent);
 
     useDOM.addToHTML (useDOM.createTextElement ('div', 'Projects'), sidebarContent);
 
@@ -34,6 +34,8 @@ const loadPage = (function () {
     useDOM.appendProj (today, sidebarContent, 'div');
     useDOM.appendProj (today, displayContent, 'h3');
     useDOM.appendAllTasks (today.tasks, displayContent, 'div');
+
+    useDOM.bindEvents (addTaskBtn, 'click', () => console.log('click'));
 
     
 })();
