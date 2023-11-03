@@ -5,6 +5,7 @@ import {modalMod} from './modal.js'
 
 const loadPage = (function () {
     const htmlContent = document.querySelector ('#content')
+    const confirmBtn = document.querySelector("#confirmBtn");
 
     const headerContent = useDOM.createContainer ('header', 'div');
     const sidebarContent = useDOM.createContainer ('sidebar', 'div');
@@ -37,6 +38,8 @@ const loadPage = (function () {
     useDOM.renderDisplay (today, displayContent);
 
     useDOM.bindEvents (addTaskBtn, 'click', () => modalMod.showModal());
+    useDOM.bindEvents (confirmBtn, 'click', (event) => modalMod.confirmTask (event,
+         tasks, today, displayContent));
     
 })();
 

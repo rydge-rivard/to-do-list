@@ -5,21 +5,18 @@ import {taskMod} from "./tasks";
 const modalMod = (function () {
 
     const dialog = document.querySelector('dialog')
-    const confirmBtn = dialog.querySelector("#confirmBtn");
-    let newTask;
-
-    useDOM.bindEvents (confirmBtn, 'click', (event) => confirmTask (event));
+    
 
     function showModal () {
         console.log('click')
         dialog.showModal();
     }
 
-    function confirmTask (event) {
+    function confirmTask (event, taskArr, project, parent) {
         event.preventDefault();
-        newTask = createTask ();
-        taskMod.appendTask (newTask, document.querySelector('.display'));
-        console.log(newTask);
+        let newTask = createTask ();
+        taskMod.addToProject (taskArr, newTask, project, parent)
+        return newTask;
     }
 
     function sortInputs () {
@@ -38,7 +35,7 @@ const modalMod = (function () {
     return {
         //return an object to push to array in index
         showModal: showModal,
-        newTask,
+        confirmTask: confirmTask,
     }
 
 })();
