@@ -23,9 +23,9 @@ const loadPage = (function () {
     manipulateDOM.addToHTML (manipulateDOM.createTextElement ('div', 'Projects'), sidebarContent);
 
     const tasks = [];
-    const clean = taskMod.createTask ('Clean', 'clean your room', Date(), 'Low');
-    const surf = taskMod.createTask ('Surf', 'high tide at 3PM', Date(), 'High');
+    const clean = taskMod.createTask ('Clean', 'clean your room', Date(), 'Low', tasks.length);
     taskMod.assignTask (clean, tasks);
+    const surf = taskMod.createTask ('Surf', 'high tide at 3PM', Date(), 'High', tasks.length);
     taskMod.assignTask (surf, tasks);
 
     const today = projectMod.createProject ('Today', tasks);

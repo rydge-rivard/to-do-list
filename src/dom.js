@@ -30,9 +30,9 @@ const manipulateDOM = (function () {
         });
     }
 
-    function appendTask (task, location) {
-        appendProj (task.title, location, 'div');
-    }
+    // function appendTask (task, location) {
+    //     appendProj (task.title, location, 'div');
+    // }
 
     function bindEvents (element, event, action) {
         element.addEventListener(event, action);
@@ -40,7 +40,7 @@ const manipulateDOM = (function () {
 
     function log (obj) {
         console.log (obj.title);
-        console.log (obj.description);
+        console.log (obj);
     }
 
     return {
