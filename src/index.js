@@ -11,7 +11,7 @@ const loadPage = (function () {
     manipulateDOM.addToHTML (sidebarContent, htmlContent);
     manipulateDOM.addToHTML (displayContent, htmlContent);
 
-    manipulateDOM.addToHTML (manipulateDOM.createTextElement ('span', 'To Do List'), headerContent);
+    manipulateDOM.addToHTML (manipulateDOM.createTextElement ('h2', 'To Do List'), headerContent);
     manipulateDOM.addToHTML (manipulateDOM.createTextElement ('button', 'Add Project'), headerContent)
 
 })();
