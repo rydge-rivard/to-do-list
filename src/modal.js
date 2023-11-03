@@ -6,6 +6,7 @@ const modalMod = (function () {
 
     const dialog = document.querySelector('dialog')
     const confirmBtn = dialog.querySelector("#confirmBtn");
+    let newTask;
 
     useDOM.bindEvents (confirmBtn, 'click', (event) => confirmTask (event));
 
@@ -16,13 +17,9 @@ const modalMod = (function () {
 
     function confirmTask (event) {
         event.preventDefault();
-        createObj ();
+        newTask = createTask ();
+        console.log(newTask);
     }
-
-    // function getInputs () {
-    //     const inputs = dialog.querySelectorAll('input')
-    //     return inputs;
-    // }
 
     function sortInputs () {
         const inputs = dialog.querySelectorAll('input')
@@ -31,16 +28,16 @@ const modalMod = (function () {
         return objArr;
     }
 
-    function createObj () {
+    function createTask () {
         const inputValues = sortInputs();
         const newTask = taskMod.createTask(inputValues[0]);
-        console.log (newTask);
         return newTask;
     }
 
     return {
         //return an object to push to array in index
         showModal: showModal,
+        newTask,
     }
 
 })();

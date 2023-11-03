@@ -37,7 +37,6 @@ const loadPage = (function () {
     useDOM.appendAllTasks (today.tasks, displayContent, 'div');
 
     useDOM.bindEvents (addTaskBtn, 'click', () => modalMod.showModal());
-
     
 })();
 
