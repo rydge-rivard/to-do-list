@@ -9,13 +9,11 @@ const loadPage = (function () {
 
     const headerContent = useDOM.createContainer ('header', 'div');
     const sidebarContent = useDOM.createContainer ('sidebar', 'div');
-    const displayContent = useDOM.createContainer ('display', 'div');
     const gridContainer = useDOM.createContainer ('grid', 'div');
 
     useDOM.addToHTML (headerContent, htmlContent);
     useDOM.addToHTML (gridContainer, htmlContent);
     useDOM.addToHTML (sidebarContent, gridContainer);
-    useDOM.addToHTML (displayContent, gridContainer);
 
     useDOM.addToHTML (useDOM.createTextElement ('h2', 'To Do List'), headerContent);
     useDOM.addToHTML (useDOM.createClassTextElement 
@@ -35,11 +33,11 @@ const loadPage = (function () {
     const today = projectMod.createProject ('Today', tasks);
 
     useDOM.appendProj (today, sidebarContent, 'div');
-    useDOM.renderDisplay (today, displayContent);
+    useDOM.renderDisplay (today, gridContainer);
 
     useDOM.bindEvents (addTaskBtn, 'click', () => modalMod.showModal());
     useDOM.bindEvents (confirmBtn, 'click', (event) => modalMod.confirmTask (event,
-         tasks, today, displayContent));
+         tasks, today, gridContainer));
     
 })();
 

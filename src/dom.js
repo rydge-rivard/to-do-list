@@ -51,8 +51,16 @@ const useDOM = (function () {
     }
 
     function renderDisplay (project, parent) {
-        useDOM.appendProj (project, parent, 'h3');
-        useDOM.appendAllTasks (project.tasks, parent, 'div');
+        const displayContent = useDOM.createContainer ('display', 'div');
+        useDOM.addToHTML (displayContent, parent);
+
+        useDOM.appendProj (project, displayContent, 'h3');
+        useDOM.appendAllTasks (project.tasks, displayContent, 'div');
+    }
+
+    
+    function deleteDisplay () {
+        document.querySelector ('.display').remove();
     }
 
     return {
@@ -64,6 +72,7 @@ const useDOM = (function () {
         createClassTextElement: createClassTextElement,
         bindEvents: bindEvents,
         renderDisplay: renderDisplay,
+        deleteDisplay: deleteDisplay,
     }
 
 })();

@@ -20,7 +20,8 @@ const taskMod = (function () {
 
     function addToProject (taskArr, taskObj, project, parent) {
         taskArr.push (taskObj);
-        useDOM.renderDisplay(project, parent);
+        useDOM.deleteDisplay ();
+        useDOM.renderDisplay (project, parent);
     }
 
     //create content divs on task create that are display = none
