@@ -30,11 +30,11 @@ const useDOM = (function () {
         return newElement;
     }
 
-    //potentially split this into tasks.js
     function appendAllTasks (taskArr, location) {
         taskArr.forEach(task => {
             const element = appendProj (task, location, 'div');
-            bindEvents (element, 'click', () => toggleDetails (task, element));
+            const taskDetails = createHiddenDetails (task, element);
+            bindEvents (element, 'click', () => toggleDetails (task, taskDetails));
         });
     }
 
@@ -42,12 +42,20 @@ const useDOM = (function () {
         element.addEventListener(event, action);
     }
 
-    //circle back to this and split function int tasks.js
-    function toggleDetails (obj, location) {
+    function toggleDetails (obj, element) {
+        if (element.style.display === 'none') {
+            element.style.display = 'block';
+        } else {
+            element.style.display = 'none';
+        }
+    }
+
+    function createHiddenDetails (obj, location) {
         const active = useDOM.createContainer ('active', 'div');
+        active.style.display = "none";
         useDOM.addToHTML (active, location);
         taskMod.addTaskData (obj, active);
-        return obj;
+        return active;
     }
 
     function renderDisplay (project, parent) {
