@@ -4,8 +4,8 @@ import {taskMod} from "./tasks";
 
 const modalMod = (function () {
 
-    const dialog = document.querySelector('dialog')
-    
+    const dialog = document.querySelector('dialog');
+    const inputs = dialog.querySelectorAll('input');
 
     function showModal () {
         console.log('click')
@@ -14,22 +14,25 @@ const modalMod = (function () {
 
     function confirmTask (event, taskArr, project, parent) {
         event.preventDefault();
-        let newTask = createTask ();
-        taskMod.addToProject (taskArr, newTask, project, parent)
-        return newTask;
+        taskMod.addToProject (taskArr, createTask (inputs), project, parent)
+        closeModal (inputs);
     }
 
-    function sortInputs () {
-        const inputs = dialog.querySelectorAll('input')
+    function sortInputs (inputArr) {
         const objArr = [];
-        inputs.forEach(input => objArr.push (input.value));
+        inputArr.forEach(input => objArr.push (input.value));
         return objArr;
     }
 
-    function createTask () {
-        const inputValues = sortInputs();
+    function createTask (inputArr) {
+        const inputValues = sortInputs(inputArr);
         const newTask = taskMod.createTask(inputValues[0]);
         return newTask;
+    }
+
+    function closeModal () {
+        inputs.forEach(input => input.value = '');
+        dialog.close();
     }
 
     return {
