@@ -5,7 +5,6 @@ import {modalMod} from './modal.js'
 
 const loadPage = (function () {
     const htmlContent = document.querySelector ('#content')
-    const confirmBtn = document.querySelector("#confirmBtn");
 
     const headerContent = useDOM.createContainer ('header', 'div');
     const sidebarContent = useDOM.createContainer ('sidebar', 'div');
@@ -16,10 +15,18 @@ const loadPage = (function () {
     useDOM.addToHTML (sidebarContent, gridContainer);
 
     useDOM.addToHTML (useDOM.createTextElement ('h2', 'To Do List'), headerContent);
-    useDOM.addToHTML (useDOM.createClassTextElement 
-        ('button', 'Add Project', 'add-project'), headerContent);
+
+    const addProjBtn = useDOM.createClassTextElement ('button', 'Add Project', 'add-project');
+    useDOM.addToHTML (addProjBtn, headerContent);
+    useDOM.bindEvents (addProjBtn, 'click', () => modalMod.showModal());
+
     const addTaskBtn = useDOM.createClassTextElement ('button', 'Add Task', 'add-task');
     useDOM.addToHTML (addTaskBtn, headerContent);
+    useDOM.bindEvents (addTaskBtn, 'click', () => modalMod.showModal());
+
+    const confirmBtn = document.querySelector("#confirmBtn");
+    useDOM.bindEvents (confirmBtn, 'click', (event) => modalMod.confirmTask (event,
+         tasks, today, gridContainer));
 
     useDOM.addToHTML (useDOM.createTextElement ('div', 'Projects'), sidebarContent);
 
@@ -34,10 +41,6 @@ const loadPage = (function () {
 
     useDOM.appendProj (today, sidebarContent, 'div');
     useDOM.renderDisplay (today, gridContainer);
-
-    useDOM.bindEvents (addTaskBtn, 'click', () => modalMod.showModal());
-    useDOM.bindEvents (confirmBtn, 'click', (event) => modalMod.confirmTask (event,
-         tasks, today, gridContainer));
     
 })();
 
