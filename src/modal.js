@@ -1,19 +1,22 @@
 export {modalMod}
-import {projects} from "./index";
+import { useDOM } from "./dom";
+import {projectMod} from "./projects";
 import {taskMod} from "./tasks";
 
 const modalMod = (function () {
 
-    const dialog = document.querySelector('dialog');
-    const inputs = dialog.querySelectorAll('input');
+    const dialog = document.querySelector ('dialog');
+    const inputs = dialog.querySelectorAll ('input');
+    const select = dialog.querySelector ('select');
 
     function showModal () {
-        console.log('click')
+        createProjectOptions (projectMod.projects);
         dialog.showModal();
     }
 
-    function getProjects () {
-        projectMod.projectMod;
+    function createProjectOptions () {
+        projectMod.projects.forEach(project => useDOM.addToHTML (useDOM.createTextElement 
+            ('option', project.title), select));
     }
 
     function confirmTask (event, taskArr, project, parent) {
@@ -40,7 +43,6 @@ const modalMod = (function () {
     }
 
     return {
-        //return an object to push to array in index
         showModal: showModal,
         confirmTask: confirmTask,
     }

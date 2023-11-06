@@ -14,7 +14,7 @@ const loadPage = (function () {
     useDOM.addToHTML (gridContainer, htmlContent);
     useDOM.addToHTML (sidebarContent, gridContainer);
 
-    useDOM.addToHTML (useDOM.createTextElement ('h1', 'To Do List'), headerContent);
+    useDOM.addToHTML (useDOM.createTextElement ('h2', 'To Do List'), headerContent);
 
     const addProjBtn = useDOM.createClassTextElement ('button', 'Add Project', 'add-project');
     useDOM.addToHTML (addProjBtn, headerContent);
