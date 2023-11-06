@@ -65,11 +65,20 @@ const modalMod = (function () {
         taskDialog.close();
     }
 
+    function confirmProj (event, parent) {
+        event.preventDefault ();
+        console.log ('click')
+        // const project = findSelectedProj ();
+        // taskMod.addToProject (project.taskList, createTask (taskInputs), project, parent);
+        // closeModal (taskInputs);
+    }
+
     return {
         showTaskModal: showTaskModal,
         showProjModal: showProjModal,
         confirmTask: confirmTask,
         createProjectOptions: createProjectOptions,
+        confirmProj, confirmProj,
     }
 
 })();

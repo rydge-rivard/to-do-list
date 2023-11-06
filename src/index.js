@@ -28,6 +28,9 @@ const loadPage = (function () {
     useDOM.bindEvents (confirmTask, 'click', (event) => modalMod.confirmTask 
     (event, gridContainer));
 
+    const confirmProj = document.querySelector("#confirmProj");
+    useDOM.bindEvents (confirmProj, 'click', (event) => modalMod.confirmProj (event, parent));
+
     useDOM.addToHTML (useDOM.createTextElement ('h3', 'Projects'), sidebarContent);
 
     const todayTasks = [];
