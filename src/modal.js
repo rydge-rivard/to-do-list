@@ -68,12 +68,12 @@ const modalMod = (function () {
         modal.close();
     }
 
-    function confirmProj (event, projContainer) {
+    function confirmProj (event, projContainer, displayContainer) {
         event.preventDefault ();
         projectMod.createFromBtn (projInputs.value, projectMod.projects);
         useDOM.deleteSidebar ();
 
-        useDOM.renderSidebar (projectMod.projects, projContainer, 'div');
+        useDOM.renderSidebar (projectMod.projects, projContainer, 'div', displayContainer);
         closeModal (projDialog);
     }
 

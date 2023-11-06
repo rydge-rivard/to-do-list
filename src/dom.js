@@ -76,10 +76,10 @@ const useDOM = (function () {
         refreshSidebar (projArr, childLocation, element);
     }
  
-    function renderSidebar (projArr, childLocation, element) {
+    function renderSidebar (projArr, childLocation, element, displayContainer) {
         projArr.forEach(proj => {
             const projDiv = appendProj (proj, childLocation, element)
-            bindEvents (projDiv, 'click', () => refreshDisplay (proj));
+            bindEvents (projDiv, 'click', () => refreshDisplay (proj, displayContainer));
         });
     }
     
