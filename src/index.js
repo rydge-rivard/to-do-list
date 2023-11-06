@@ -30,7 +30,6 @@ const loadPage = (function () {
 
     useDOM.addToHTML (useDOM.createTextElement ('h3', 'Projects'), sidebarContent);
 
-    const projects = [];
     const tasks = [];
     const clean = taskMod.createTask ('Clean', 'clean your room', Date(), 'Low', tasks.length);
     taskMod.assignTask (clean, tasks);
@@ -38,11 +37,11 @@ const loadPage = (function () {
     taskMod.assignTask (surf, tasks);
 
     const today = projectMod.createProject ('Today', tasks);
-    projects.push (projectMod.createProject ('Test', tasks));
-    projects.push (today);
+    projectMod.projects.push (projectMod.createProject ('Test', tasks));
+    projectMod.projects.push (today);
 
     useDOM.renderDisplay (today, gridContainer);
-    useDOM.renderSidebar (projects, sidebarContent, 'div')
+    useDOM.renderSidebar (projectMod.projects, sidebarContent, 'div')
     
 })();
 

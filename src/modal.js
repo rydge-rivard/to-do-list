@@ -1,5 +1,5 @@
 export {modalMod}
-import {useDOM} from "./dom";
+import {projects} from "./index";
 import {taskMod} from "./tasks";
 
 const modalMod = (function () {
@@ -10,6 +10,10 @@ const modalMod = (function () {
     function showModal () {
         console.log('click')
         dialog.showModal();
+    }
+
+    function getProjects () {
+        projectMod.projectMod;
     }
 
     function confirmTask (event, taskArr, project, parent) {
