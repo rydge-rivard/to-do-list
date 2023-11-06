@@ -66,6 +66,9 @@ const useDOM = (function () {
         useDOM.appendAllTasks (project.tasks, displayContent, 'div');
     }
 
+    function renderSidebar (projArr, location, element) {
+        projArr.forEach(project => appendProj (project, location, element));
+    }
     
     function deleteDisplay () {
         document.querySelector ('.display').remove();
@@ -81,6 +84,7 @@ const useDOM = (function () {
         bindEvents: bindEvents,
         renderDisplay: renderDisplay,
         deleteDisplay: deleteDisplay,
+        renderSidebar: renderSidebar,
     }
 
 })();

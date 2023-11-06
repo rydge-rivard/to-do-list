@@ -14,7 +14,7 @@ const loadPage = (function () {
     useDOM.addToHTML (gridContainer, htmlContent);
     useDOM.addToHTML (sidebarContent, gridContainer);
 
-    useDOM.addToHTML (useDOM.createTextElement ('h2', 'To Do List'), headerContent);
+    useDOM.addToHTML (useDOM.createTextElement ('h1', 'To Do List'), headerContent);
 
     const addProjBtn = useDOM.createClassTextElement ('button', 'Add Project', 'add-project');
     useDOM.addToHTML (addProjBtn, headerContent);
@@ -28,7 +28,7 @@ const loadPage = (function () {
     useDOM.bindEvents (confirmBtn, 'click', (event) => modalMod.confirmTask (event,
          tasks, today, gridContainer));
 
-    useDOM.addToHTML (useDOM.createTextElement ('div', 'Projects'), sidebarContent);
+    useDOM.addToHTML (useDOM.createTextElement ('h3', 'Projects'), sidebarContent);
 
     const projects = [];
     const tasks = [];
@@ -38,9 +38,11 @@ const loadPage = (function () {
     taskMod.assignTask (surf, tasks);
 
     const today = projectMod.createProject ('Today', tasks);
+    projects.push (projectMod.createProject ('Test', tasks));
+    projects.push (today);
 
-    useDOM.appendProj (today, sidebarContent, 'div');
     useDOM.renderDisplay (today, gridContainer);
+    useDOM.renderSidebar (projects, sidebarContent, 'div')
     
 })();
 
