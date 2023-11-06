@@ -19,14 +19,13 @@ const modalMod = (function () {
         projectMod.projects.forEach(project => {
             const option = useDOM.createTextElement ('option', project.title);
             useDOM.addToHTML (option, select);
-            option.classList.add(`project-${i}`)
-            i += 1;
+            console.log (projectMod.projects[i].title === project.title);
     });
     }
 
     function confirmTask (event, taskArr, project, parent) {
         event.preventDefault();
-        taskMod.addToProject (taskArr, createTask (inputs), project, parent)
+        taskMod.addToProject (taskArr, createTask (inputs), project, parent);
         closeModal (inputs);
     }
 
