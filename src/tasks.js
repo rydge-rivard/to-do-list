@@ -14,8 +14,7 @@ const taskMod = (function () {
 
     function addToProject (taskArr, taskObj, project, parent) {
         taskArr.push (taskObj);
-        useDOM.deleteDisplay ();
-        useDOM.renderDisplay (project, parent);
+        useDOM.refreshDisplay (project, parent);
     }
 
     function addTaskData (obj, parent) {

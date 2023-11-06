@@ -58,6 +58,11 @@ const useDOM = (function () {
         return active;
     }
 
+    function refreshDisplay (project, parent) {
+        useDOM.deleteDisplay ();
+        useDOM.renderDisplay (project, parent);
+    }
+
     function renderDisplay (project, parent) {
         const displayContent = useDOM.createContainer ('display', 'div');
         useDOM.addToHTML (displayContent, parent);
@@ -66,8 +71,11 @@ const useDOM = (function () {
         useDOM.appendAllTasks (project.taskList, displayContent, 'div');
     }
 
-    function renderSidebar (projArr, location, element) {
-        projArr.forEach(project => appendProj (project, location, element));
+    function renderSidebar (projArr, location, element, displayParent) {
+        projArr.forEach(proj => {
+            const projDiv = appendProj (proj, location, element)
+            bindEvents (projDiv, 'click', () => refreshDisplay (proj, displayParent));
+        });
     }
     
     function deleteDisplay () {
@@ -85,6 +93,7 @@ const useDOM = (function () {
         renderDisplay: renderDisplay,
         deleteDisplay: deleteDisplay,
         renderSidebar: renderSidebar,
+        refreshDisplay: refreshDisplay,
     }
 
 })();
