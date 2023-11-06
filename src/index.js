@@ -26,7 +26,7 @@ const loadPage = (function () {
 
     const confirmBtn = document.querySelector("#confirmBtn");
     useDOM.bindEvents (confirmBtn, 'click', (event) => modalMod.confirmTask (event,
-         tasks, today, gridContainer));
+         tasks, projectMod.projects[1], gridContainer));
 
     useDOM.addToHTML (useDOM.createTextElement ('h3', 'Projects'), sidebarContent);
 
@@ -37,11 +37,14 @@ const loadPage = (function () {
     taskMod.assignTask (surf, tasks);
 
     const today = projectMod.createProject ('Today', tasks);
-    projectMod.projects.push (projectMod.createProject ('Test', tasks));
+    projectMod.projects.push (projectMod.createProject ('Morocco', tasks));
     projectMod.projects.push (today);
 
-    useDOM.renderDisplay (today, gridContainer);
+    useDOM.renderDisplay (projectMod.projects[0], gridContainer);
     useDOM.renderSidebar (projectMod.projects, sidebarContent, 'div')
+
+    //need to re-render this after a new projec is added
+    //cross this bridge when working on add proj btn
     modalMod.createProjectOptions (projectMod.projects);
     
 })();

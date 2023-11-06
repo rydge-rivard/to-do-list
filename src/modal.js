@@ -15,8 +15,13 @@ const modalMod = (function () {
     }
 
     function createProjectOptions () {
-        projectMod.projects.forEach(project => useDOM.addToHTML (useDOM.createTextElement 
-            ('option', project.title), select));
+        let i = 0;
+        projectMod.projects.forEach(project => {
+            const option = useDOM.createTextElement ('option', project.title);
+            useDOM.addToHTML (option, select);
+            option.classList.add(`project-${i}`)
+            i += 1;
+    });
     }
 
     function confirmTask (event, taskArr, project, parent) {
