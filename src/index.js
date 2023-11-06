@@ -25,8 +25,8 @@ const loadPage = (function () {
     useDOM.bindEvents (addTaskBtn, 'click', () => modalMod.showModal());
 
     const confirmBtn = document.querySelector("#confirmBtn");
-    useDOM.bindEvents (confirmBtn, 'click', (event) => modalMod.confirmTask (event,
-         tasks, gridContainer));
+    useDOM.bindEvents (confirmBtn, 'click', (event) => modalMod.confirmTask 
+    (event, gridContainer));
 
     useDOM.addToHTML (useDOM.createTextElement ('h3', 'Projects'), sidebarContent);
 
@@ -36,8 +36,11 @@ const loadPage = (function () {
     const surf = taskMod.createTask ('Surf', 'high tide at 3PM', Date(), 'High', tasks.length);
     taskMod.assignTask (surf, tasks);
 
+    const moroccoTasks = [];
+
     const today = projectMod.createProject ('Today', tasks);
-    projectMod.projects.push (projectMod.createProject ('Morocco', tasks));
+    console.log (today);
+    projectMod.projects.push (projectMod.createProject ('Morocco', moroccoTasks));
     projectMod.projects.push (today);
 
     useDOM.renderDisplay (projectMod.projects[0], gridContainer);

@@ -63,7 +63,7 @@ const useDOM = (function () {
         useDOM.addToHTML (displayContent, parent);
 
         useDOM.appendProj (project, displayContent, 'h3');
-        useDOM.appendAllTasks (project.tasks, displayContent, 'div');
+        useDOM.appendAllTasks (project.taskList, displayContent, 'div');
     }
 
     function renderSidebar (projArr, location, element) {

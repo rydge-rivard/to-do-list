@@ -4,8 +4,8 @@ const projectMod = (function () {
 
     const projects = [];
 
-    function createProject (title, tasks) {
-        return {title, tasks}
+    function createProject (title, taskList) {
+        return {title, taskList}
     }
 
     return {

@@ -23,18 +23,15 @@ const modalMod = (function () {
     });
     }
 
-    function confirmTask (event, taskArr, parent) {
+    function confirmTask (event, parent) {
         event.preventDefault ();
-        console.log (findSelectedProj ());
-        console.log (projectMod.projects[1]);
-        taskMod.addToProject (taskArr, createTask (inputs), findSelectedProj (), parent);
+        const project = findSelectedProj ();
+        taskMod.addToProject (project.taskList, createTask (inputs), project, parent);
         closeModal (inputs);
     }
 
     function getSelectedProj () {
-        const selector = dialog.querySelector ('select');
-        console.log (selector.value);
-        return selector.value;
+        return dialog.querySelector ('select').value;
     }
 
     function findSelectedProj () {
