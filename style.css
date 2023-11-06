@@ -69,8 +69,10 @@ dialog {
 }
 
 fieldset {
-    padding: 24px 0 12px 0;
+    padding: 12px;
     border: none;
+    display: grid;
+    grid-auto-columns: min-content;
 }
 
 ul, 
@@ -78,6 +80,11 @@ li {
     margin: 0;
     padding: 0;
     list-style: none;
+}
+
+li {
+    padding: 12px 0;
+    font-size: 14px;
 }
 
 dialog button {
@@ -89,14 +96,22 @@ dialog div {
     justify-content: center;
 }
 
-input {
-    width: 300px;
+input,
+select {
+    box-sizing: border-box;
     padding: 4px 8px;
-    margin: 0 0 0 8px;
+    width: 320px;
+    margin: 6px 0 0 0;
+    font-size: 14px;
+}
+
+label {
+    margin: 0 0 8px 0;
 }
 
 legend {
     font-weight: 600;
+    font-size: 18px;
 }
 
 .display div:hover {
