@@ -118,7 +118,8 @@ legend {
     font-size: 18px;
 }
 
-.display div:hover {
+.display div:hover,
+.sidebar div:hover {
     cursor: pointer;
 }
 
