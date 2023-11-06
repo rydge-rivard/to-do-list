@@ -30,18 +30,18 @@ const loadPage = (function () {
 
     useDOM.addToHTML (useDOM.createTextElement ('h3', 'Projects'), sidebarContent);
 
-    const tasks = [];
-    const clean = taskMod.createTask ('Clean', 'clean your room', Date(), 'Low', tasks.length);
-    taskMod.assignTask (clean, tasks);
-    const surf = taskMod.createTask ('Surf', 'high tide at 3PM', Date(), 'High', tasks.length);
-    taskMod.assignTask (surf, tasks);
+    const todayTasks = [];
+    const clean = taskMod.createTask ('Clean', 'clean your room', Date(), 'Low', todayTasks.length);
+    taskMod.assignTask (clean, todayTasks);
+    const surf = taskMod.createTask ('Surf', 'high tide at 3PM', Date(), 'High', todayTasks.length);
+    taskMod.assignTask (surf, todayTasks);
 
     const moroccoTasks = [];
+    const cook = taskMod.createTask ('Cook', 'tagine', Date(), 'Medium', moroccoTasks.length);
+    taskMod.assignTask (cook, moroccoTasks);
 
-    const today = projectMod.createProject ('Today', tasks);
-    console.log (today);
     projectMod.projects.push (projectMod.createProject ('Morocco', moroccoTasks));
-    projectMod.projects.push (today);
+    projectMod.projects.push (projectMod.createProject ('Today', todayTasks));
 
     useDOM.renderDisplay (projectMod.projects[0], gridContainer);
     useDOM.renderSidebar (projectMod.projects, sidebarContent, 'div')
