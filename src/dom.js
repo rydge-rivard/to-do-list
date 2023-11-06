@@ -52,7 +52,7 @@ const useDOM = (function () {
 
     function createHiddenDetails (obj, location) {
         const active = useDOM.createContainer ('active', 'div');
-        active.style.display = "none";
+        // active.style.display = "none";
         useDOM.addToHTML (active, location);
         taskMod.addTaskData (obj, active);
         return active;
