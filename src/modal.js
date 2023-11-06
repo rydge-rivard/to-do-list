@@ -5,13 +5,18 @@ import {taskMod} from "./tasks";
 
 const modalMod = (function () {
 
-    const dialog = document.querySelector ('dialog');
-    const inputs = dialog.querySelectorAll ('input');
-    const select = dialog.querySelector ('select');
+    const taskDialog = document.querySelector ('.task-dialog');
+    const taskInputs = taskDialog.querySelectorAll ('input');
+    const select = taskDialog.querySelector ('select');
 
-    function showModal () {
-        
-        dialog.showModal();
+    const projDialog = document.querySelector ('.proj-dialog')
+
+    function showTaskModal () {
+        taskDialog.showModal();
+    }
+
+    function showProjModal () {
+        projDialog.showModal();
     }
 
     function createProjectOptions () {
@@ -26,12 +31,12 @@ const modalMod = (function () {
     function confirmTask (event, parent) {
         event.preventDefault ();
         const project = findSelectedProj ();
-        taskMod.addToProject (project.taskList, createTask (inputs), project, parent);
-        closeModal (inputs);
+        taskMod.addToProject (project.taskList, createTask (taskInputs), project, parent);
+        closeModal (taskInputs);
     }
 
     function getSelectedProj () {
-        return dialog.querySelector ('select').value;
+        return taskDialog.querySelector ('select').value;
     }
 
     function findSelectedProj () {
@@ -56,17 +61,13 @@ const modalMod = (function () {
     }
 
     function closeModal () {
-        inputs.forEach(input => input.value = '');
-        dialog.close();
-    }
-
-    function removeProjOptions () {
-        const options = dialog.querySelectorAll('option');
-        options.forEach(option => option.remove());
+        taskInputs.forEach(input => input.value = '');
+        taskDialog.close();
     }
 
     return {
-        showModal: showModal,
+        showTaskModal: showTaskModal,
+        showProjModal: showProjModal,
         confirmTask: confirmTask,
         createProjectOptions: createProjectOptions,
     }

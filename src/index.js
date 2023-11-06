@@ -18,14 +18,14 @@ const loadPage = (function () {
 
     const addProjBtn = useDOM.createClassTextElement ('button', 'Add Project', 'add-project');
     useDOM.addToHTML (addProjBtn, headerContent);
-    useDOM.bindEvents (addProjBtn, 'click', () => modalMod.showModal());
+    useDOM.bindEvents (addProjBtn, 'click', () => modalMod.showProjModal());
 
     const addTaskBtn = useDOM.createClassTextElement ('button', 'Add Task', 'add-task');
     useDOM.addToHTML (addTaskBtn, headerContent);
-    useDOM.bindEvents (addTaskBtn, 'click', () => modalMod.showModal());
+    useDOM.bindEvents (addTaskBtn, 'click', () => modalMod.showTaskModal());
 
-    const confirmBtn = document.querySelector("#confirmBtn");
-    useDOM.bindEvents (confirmBtn, 'click', (event) => modalMod.confirmTask 
+    const confirmTask = document.querySelector("#confirmTask");
+    useDOM.bindEvents (confirmTask, 'click', (event) => modalMod.confirmTask 
     (event, gridContainer));
 
     useDOM.addToHTML (useDOM.createTextElement ('h3', 'Projects'), sidebarContent);
