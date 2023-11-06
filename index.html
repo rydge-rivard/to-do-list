@@ -9,7 +9,7 @@
 </head>
 <body>
     <div id="content"></div>
-    <dialog>
+    <dialog class="task-dialog">
         <form action="" method="">
             <fieldset>
                 <legend>Add New Task</legend>
@@ -26,7 +26,24 @@
             </fieldset>
             <div>
                 <button value="cancel" formmethod="dialog">Cancel</button>
-                <button id="confirmBtn" value="default">Submit</button>
+                <button id="confirmTask" value="default">Submit</button>
+            </div>
+        </form>
+    </dialog>
+    <dialog class="proj-dialog">
+        <form action="" method="">
+            <fieldset>
+                <legend>Add New Project</legend>
+                <ul>
+                    <li>
+                        <label for="proj-title">Project Title</label>
+                        <input type="text" name="proj-title" id="proj-title">
+                    </li>
+                </ul>
+            </fieldset>
+            <div>
+                <button value="cancel" formmethod="dialog">Cancel</button>
+                <button id="confirmProj" value="default">Submit</button>
             </div>
         </form>
     </dialog>
