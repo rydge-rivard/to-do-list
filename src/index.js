@@ -29,7 +29,8 @@ const loadPage = (function () {
     (event, gridContainer));
 
     const confirmProj = document.querySelector("#confirmProj");
-    useDOM.bindEvents (confirmProj, 'click', (event) => modalMod.confirmProj (event, sidebarContent, gridContainer));
+    useDOM.bindEvents (confirmProj, 'click', (event) => modalMod.confirmProj 
+    (event, sidebarContent, gridContainer));
 
     useDOM.addToHTML (useDOM.createTextElement ('h3', 'Projects'), sidebarContent);
 

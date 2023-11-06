@@ -89,7 +89,7 @@ const useDOM = (function () {
 
     function deleteSidebar () {
         const sidebarDivs = document.querySelectorAll ('.sidebar > div');
-        sidebarDivs.forEach(element => element.remove());
+        sidebarDivs.forEach(proj => proj.remove());
     }
 
     return {

@@ -23,12 +23,18 @@ const modalMod = (function () {
     }
 
     function createProjectOptions () {
+        removeProjOptions ()
         let i = 0;
         projectMod.projects.forEach(project => {
             const option = useDOM.createTextElement ('option', project.title);
             useDOM.addToHTML (option, select);
             i += 1;
     });
+    }
+
+    function removeProjOptions () {
+        const projOptions = taskDialog.querySelectorAll ('option');
+        projOptions.forEach(option => option.remove());
     }
 
     function confirmTask (event, parent) {
@@ -72,9 +78,9 @@ const modalMod = (function () {
         event.preventDefault ();
         projectMod.createFromBtn (projInputs.value, projectMod.projects);
         useDOM.deleteSidebar ();
-
         useDOM.renderSidebar (projectMod.projects, projContainer, 'div', displayContainer);
         closeModal (projDialog);
+        createProjectOptions (projectMod.projects);
     }
 
     return {
