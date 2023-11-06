@@ -42,6 +42,7 @@ const loadPage = (function () {
 
     useDOM.renderDisplay (today, gridContainer);
     useDOM.renderSidebar (projectMod.projects, sidebarContent, 'div')
+    modalMod.createProjectOptions (projectMod.projects);
     
 })();
 

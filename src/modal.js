@@ -10,7 +10,7 @@ const modalMod = (function () {
     const select = dialog.querySelector ('select');
 
     function showModal () {
-        createProjectOptions (projectMod.projects);
+        
         dialog.showModal();
     }
 
@@ -42,9 +42,15 @@ const modalMod = (function () {
         dialog.close();
     }
 
+    function removeProjOptions () {
+        const options = dialog.querySelectorAll('option');
+        options.forEach(option => option.remove());
+    }
+
     return {
         showModal: showModal,
         confirmTask: confirmTask,
+        createProjectOptions: createProjectOptions,
     }
 
 })();
