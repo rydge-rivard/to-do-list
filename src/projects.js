@@ -8,8 +8,13 @@ const projectMod = (function () {
         return {title, taskList}
     }
 
+    function createFromBtn (title, projectsArr) {
+        projectsArr.push (createProject (title, []));
+    }
+
     return {
         createProject: createProject,
+        createFromBtn, createFromBtn,
         projects,
     }
 })();

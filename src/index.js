@@ -29,7 +29,7 @@ const loadPage = (function () {
     (event, gridContainer));
 
     const confirmProj = document.querySelector("#confirmProj");
-    useDOM.bindEvents (confirmProj, 'click', (event) => modalMod.confirmProj (event, parent));
+    useDOM.bindEvents (confirmProj, 'click', (event) => modalMod.confirmProj (event, sidebarContent));
 
     useDOM.addToHTML (useDOM.createTextElement ('h3', 'Projects'), sidebarContent);
 
@@ -42,6 +42,8 @@ const loadPage = (function () {
     const moroccoTasks = [];
     const cook = taskMod.createTask ('Cook', 'tagine', Date(), 'Medium', moroccoTasks.length);
     taskMod.assignTask (cook, moroccoTasks);
+
+    projectMod.createFromBtn ('test', projectMod.projects);
 
     projectMod.projects.push (projectMod.createProject ('Morocco', moroccoTasks));
     projectMod.projects.push (projectMod.createProject ('Today', todayTasks));

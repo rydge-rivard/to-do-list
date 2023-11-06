@@ -9,7 +9,10 @@ const modalMod = (function () {
     const taskInputs = taskDialog.querySelectorAll ('input');
     const select = taskDialog.querySelector ('select');
 
-    const projDialog = document.querySelector ('.proj-dialog')
+    const projDialog = document.querySelector ('.proj-dialog');
+    const projInputs = projDialog.querySelector ('input');
+
+    const allInputs = document.querySelectorAll ('input');
 
     function showTaskModal () {
         taskDialog.showModal();
@@ -32,7 +35,7 @@ const modalMod = (function () {
         event.preventDefault ();
         const project = findSelectedProj ();
         taskMod.addToProject (project.taskList, createTask (taskInputs), project, parent);
-        closeModal (taskInputs);
+        closeModal (taskDialog);
     }
 
     function getSelectedProj () {
@@ -60,17 +63,18 @@ const modalMod = (function () {
         return newTask;
     }
 
-    function closeModal () {
-        taskInputs.forEach(input => input.value = '');
-        taskDialog.close();
+    function closeModal (modal) {
+        allInputs.forEach(input => input.value = '');
+        modal.close();
     }
 
-    function confirmProj (event, parent) {
+    function confirmProj (event, projContainer) {
         event.preventDefault ();
-        console.log ('click')
-        // const project = findSelectedProj ();
-        // taskMod.addToProject (project.taskList, createTask (taskInputs), project, parent);
-        // closeModal (taskInputs);
+        projectMod.createFromBtn (projInputs.value, projectMod.projects);
+        useDOM.deleteSidebar ();
+
+        useDOM.renderSidebar (projectMod.projects, projContainer, 'div');
+        closeModal (projDialog);
     }
 
     return {

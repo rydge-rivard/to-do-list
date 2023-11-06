@@ -71,15 +71,25 @@ const useDOM = (function () {
         useDOM.appendAllTasks (project.taskList, displayContent, 'div');
     }
 
-    function renderSidebar (projArr, location, element, displayParent) {
+    function refreshSidebar (projArr, childLocation, element) {
+        deleteSidebar ();
+        refreshSidebar (projArr, childLocation, element);
+    }
+ 
+    function renderSidebar (projArr, childLocation, element) {
         projArr.forEach(proj => {
-            const projDiv = appendProj (proj, location, element)
-            bindEvents (projDiv, 'click', () => refreshDisplay (proj, displayParent));
+            const projDiv = appendProj (proj, childLocation, element)
+            bindEvents (projDiv, 'click', () => refreshDisplay (proj));
         });
     }
     
     function deleteDisplay () {
         document.querySelector ('.display').remove();
+    }
+
+    function deleteSidebar () {
+        const sidebarDivs = document.querySelectorAll ('.sidebar > div');
+        sidebarDivs.forEach(element => element.remove());
     }
 
     return {
@@ -94,6 +104,8 @@ const useDOM = (function () {
         deleteDisplay: deleteDisplay,
         renderSidebar: renderSidebar,
         refreshDisplay: refreshDisplay,
+        deleteSidebar: deleteSidebar,
+        refreshSidebar: refreshSidebar,
     }
 
 })();
