@@ -42,7 +42,7 @@ const modalMod = (function () {
     function confirmTask (event, parent) {
         event.preventDefault ();
         const project = findSelectedProj ();
-        taskMod.addToProject (project.taskList, createTask (taskInputs), project, parent);
+        taskMod.addToProject (project.taskList, createTask (taskInputs, project), project, parent);
         closeModal (taskDialog);
     }
 
@@ -65,11 +65,11 @@ const modalMod = (function () {
         return objArr;
     }
 
-    function createTask (inputArr) {
+    function createTask (inputArr, project) {
         const inputValues = sortInputs(inputArr);
         addModalNonInputs (inputValues)
-        console.log (inputValues);
-        const newTask = taskMod.createTask(inputValues[0]);
+        const newTask = taskMod.createTask(inputValues[0], 
+            inputValues[2], inputValues[1], inputValues[3], project.taskList.length);
         return newTask;
     }
 
