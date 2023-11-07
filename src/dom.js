@@ -38,13 +38,11 @@ const useDOM = (function () {
             addToHTML (rowCont, location);
             const rowIcons = createTaskRow (rowCont);
             const taskTitle = appendProj (task, rowIcons, 'div');
-            const editIcon = createImg ('./img/pencil.svg', '20px', 'Trash bin icon.', rowIcons);
             const deleteIcon = createImg ('./img/delete.svg', '20px', 'Trash bin icon.', rowIcons);
             const taskDetails = createHiddenDetails (task, rowCont);
             bindEvents (taskTitle, 'click', () => toggleDetails (task, taskDetails));
             bindEvents (taskDetails, 'click', () => toggleDetails (task, taskDetails));
             bindEvents (deleteIcon, 'click', () => deleteTask (project, task, rowCont));
-            bindEvents (editIcon, 'click', () => modalMod.editTaskDetails(task));
         });
     }
 

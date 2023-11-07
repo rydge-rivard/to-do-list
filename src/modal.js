@@ -93,23 +93,12 @@ const modalMod = (function () {
         createProjectOptions (projectMod.projects);
     }
 
-    function editTaskDetails (task) {
-        setExistingDetails (task);
-        showTaskModal ()
-    }
-
-    function setExistingDetails (task) {
-        taskInputs[0].value = task.title;
-        taskInputs[1].value = task.due;
-    }
-
     return {
         showTaskModal: showTaskModal,
         showProjModal: showProjModal,
         confirmTask: confirmTask,
         createProjectOptions: createProjectOptions,
         confirmProj, confirmProj,
-        editTaskDetails: editTaskDetails,
     }
 
 })();
