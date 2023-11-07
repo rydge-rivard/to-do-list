@@ -53,22 +53,22 @@ const useDOM = (function () {
     function createHiddenDetails (obj, location) {
         const active = useDOM.createContainer ('active', 'div');
         // active.style.display = "none";
-        useDOM.addToHTML (active, location);
+        addToHTML (active, location);
         taskMod.addTaskData (obj, active);
         return active;
     }
 
     function refreshDisplay (project, parent) {
-        useDOM.deleteDisplay ();
-        useDOM.renderDisplay (project, parent);
+        deleteDisplay ();
+        renderDisplay (project, parent);
     }
 
     function renderDisplay (project, parent) {
         const displayContent = useDOM.createContainer ('display', 'div');
-        useDOM.addToHTML (displayContent, parent);
+        addToHTML (displayContent, parent);
 
-        useDOM.appendProj (project, displayContent, 'h3');
-        useDOM.appendAllTasks (project.taskList, displayContent, 'div');
+        appendProj (project, displayContent, 'h3');
+        appendAllTasks (project.taskList, displayContent, 'div');
     }
 
     function refreshSidebar (projArr, childLocation, element) {

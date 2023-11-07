@@ -4,8 +4,8 @@ import {useDOM} from './dom.js'
 
 const taskMod = (function () {
 
-    function createTask (title, description, dueDate, priority, id) {
-        return {title, description, dueDate, priority, id}
+    function createTask (title, description, due, priority, id) {
+        return {title, description, due, priority, id}
     }
 
     function assignTask (taskObj, taskArr) {
