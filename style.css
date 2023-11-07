@@ -133,3 +133,11 @@ legend {
 .sidebar div {
     margin: 6px 0;
 }
+
+.row-icon {
+    display: flex;
+}
+
+.row-icon > div {
+    flex: 1;
+}
