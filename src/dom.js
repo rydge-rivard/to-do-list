@@ -2,6 +2,8 @@ export {useDOM}
 import { modalMod } from "./modal.js";
 import { projectMod } from "./projects.js";
 import { taskMod } from "./tasks.js";
+import {storMod} from "./storage";
+
 
 const useDOM = (function () {
     function createTextElement (element, text) {
@@ -74,11 +76,11 @@ const useDOM = (function () {
     }
 
     function deleteTask (project, task, container) {
-        console.log (project);
         console.log ('Remove from array.');
         projectMod.removeObjTask (project.taskList, task.id);
         console.log (project);
         container.remove ();
+        storMod.storeProj (projectMod.projects);
     }
 
     function createHiddenDetails (obj, location) {

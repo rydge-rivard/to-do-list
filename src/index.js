@@ -2,6 +2,7 @@ import {useDOM} from './dom.js'
 import {projectMod} from './projects.js'
 import {taskMod} from './tasks.js'
 import {modalMod} from './modal.js'
+import {storMod} from './storage.js'
 
 const loadPage = (function () {
     const htmlContent = document.querySelector ('#content')
@@ -64,6 +65,8 @@ const loadPage = (function () {
     useDOM.renderSidebar (projectMod.projects, sidebarContent, 'div', gridContainer)
 
     modalMod.createProjectOptions (projectMod.projects);
+
+    // storMod.storeProj();
     
 })();
 

@@ -2,6 +2,7 @@ export {modalMod}
 import { useDOM } from "./dom";
 import {projectMod} from "./projects";
 import {taskMod} from "./tasks";
+import {storMod} from "./storage";
 
 const modalMod = (function () {
 
@@ -44,6 +45,7 @@ const modalMod = (function () {
         const project = findSelectedProj ();
         taskMod.addToProject (project.taskList, createTask (taskInputs, project), project, parent);
         closeModal (taskDialog);
+        storMod.storeProj (projectMod.projects);
     }
 
     function getSelectedProj () {
@@ -91,6 +93,7 @@ const modalMod = (function () {
         useDOM.renderSidebar (projectMod.projects, projContainer, 'div', displayContainer);
         closeModal (projDialog);
         createProjectOptions (projectMod.projects);
+        storMod.storeProj (projectMod.projects);
     }
 
     return {

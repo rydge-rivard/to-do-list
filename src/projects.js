@@ -1,3 +1,5 @@
+import { storMod } from "./storage";
+
 export {projectMod};
 
 const projectMod = (function () {
