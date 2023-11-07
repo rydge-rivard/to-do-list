@@ -32,19 +32,34 @@ const useDOM = (function () {
 
     function appendAllTasks (taskArr, location) {
         taskArr.forEach(task => {
-            const element = appendProj (task, location, 'div');
-            createImg ('./img/delete.svg', '20px', 'Trash bin icon.', element)
-            const taskDetails = createHiddenDetails (task, element);
-            bindEvents (element, 'click', () => toggleDetails (task, taskDetails));
+            const rowCont  = createContainer ('row-cont', 'div');
+            addToHTML (rowCont, location);
+
+            const title = createTaskRow (task, rowCont);
+
+
+            const taskDetails = createHiddenDetails (task, rowCont);
+            bindEvents (title, 'click', () => toggleDetails (task, taskDetails));
+            bindEvents (taskDetails, 'click', () => toggleDetails (task, taskDetails));
         });
     }
 
+    function createTaskRow (task, parent) {
+        const rowIcons  = createContainer ('row-icon', 'div');
+        addToHTML (rowIcons, parent);
+
+        const taskTitle = appendProj (task, rowIcons, 'div');
+
+        createImg ('./img/delete.svg', '20px', 'Trash bin icon.', rowIcons);
+        return taskTitle;
+    }
+
     function createImg (src, width, alt, parent) {
-        const element = document.createElement('img')
-        element.setAttribute("src", src);
-        element.setAttribute("width", width);
-        element.setAttribute("alt", alt);
-        parent.appendChild(element);
+        const img = document.createElement('img')
+        img.setAttribute("src", src);
+        img.setAttribute("width", width);
+        img.setAttribute("alt", alt);
+        parent.appendChild(img);
     }
 
     function bindEvents (element, event, action) {
@@ -77,7 +92,7 @@ const useDOM = (function () {
         addToHTML (displayContent, parent);
 
         appendProj (project, displayContent, 'h3');
-        appendAllTasks (project.taskList, displayContent, 'div');
+        appendAllTasks (project.taskList, displayContent);
     }
 
     function refreshSidebar (projArr, childLocation, element) {
