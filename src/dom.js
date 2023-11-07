@@ -34,10 +34,7 @@ const useDOM = (function () {
         taskArr.forEach(task => {
             const rowCont  = createContainer ('row-cont', 'div');
             addToHTML (rowCont, location);
-
             const title = createTaskRow (task, rowCont);
-
-
             const taskDetails = createHiddenDetails (task, rowCont);
             bindEvents (title, 'click', () => toggleDetails (task, taskDetails));
             bindEvents (taskDetails, 'click', () => toggleDetails (task, taskDetails));
