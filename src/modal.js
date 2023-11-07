@@ -71,7 +71,6 @@ const modalMod = (function () {
         const newTask = taskMod.createTask(inputValues[0], 
             inputValues[2], inputValues[1], inputValues[3], 
             `${inputValues[0]}-id#${project.taskList.length}`);
-            console.log (newTask.id);
         return newTask;
     }
 

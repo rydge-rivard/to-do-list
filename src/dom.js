@@ -1,4 +1,5 @@
 export {useDOM} 
+import { projectMod } from "./projects.js";
 import { taskMod } from "./tasks.js";
 
 const useDOM = (function () {
@@ -73,8 +74,9 @@ const useDOM = (function () {
 
     function deleteTask (project, task, container) {
         console.log (project);
-        console.log (task);
-        console.log (container);
+        console.log ('Remove from array.');
+        projectMod.removeObjTask (project.taskList, task.id);
+        console.log (project);
         container.remove ();
     }
 

@@ -35,13 +35,13 @@ const loadPage = (function () {
     useDOM.addToHTML (useDOM.createTextElement ('h3', 'Projects'), sidebarContent);
 
     const todayTasks = [];
-    const clean = taskMod.createTask ('Clean', 'clean your room', '2023-12-31', 'Low', todayTasks.length);
+    const clean = taskMod.createTask ('Clean', 'clean your room', '2023-12-31', 'Low', `Clean-id#0`);
     taskMod.assignTask (clean, todayTasks);
-    const surf = taskMod.createTask ('Surf', 'high tide at 3PM', '2023-12-31', 'High', todayTasks.length);
+    const surf = taskMod.createTask ('Surf', 'high tide at 3PM', '2023-12-31', 'High', `Surf-id#1`);
     taskMod.assignTask (surf, todayTasks);
 
     const moroccoTasks = [];
-    const cook = taskMod.createTask ('Cook', 'tagine', '2023-12-31', 'Medium', moroccoTasks.length);
+    const cook = taskMod.createTask ('Cook', 'tagine', '2023-12-31', 'Medium', `Cook-id#0`);
     taskMod.assignTask (cook, moroccoTasks);
 
     projectMod.projects.push (projectMod.createProject ('Morocco', moroccoTasks));

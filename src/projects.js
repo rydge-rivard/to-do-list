@@ -21,6 +21,7 @@ const projectMod = (function () {
     return {
         createProject: createProject,
         createFromBtn, createFromBtn,
+        removeObjTask: removeObjTask,
         projects,
     }
 })();
