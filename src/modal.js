@@ -8,6 +8,8 @@ const modalMod = (function () {
     const taskDialog = document.querySelector ('.task-dialog');
     const taskInputs = taskDialog.querySelectorAll ('input');
     const select = taskDialog.querySelector ('#project-sel');
+    const taskDescr = taskDialog.querySelector ('#descr');
+    const taskPrio  = taskDialog.querySelector ('#priority');
 
     const projDialog = document.querySelector ('.proj-dialog');
     const projInputs = projDialog.querySelector ('input');
@@ -65,8 +67,15 @@ const modalMod = (function () {
 
     function createTask (inputArr) {
         const inputValues = sortInputs(inputArr);
+        addModalNonInputs (inputValues)
+        console.log (inputValues);
         const newTask = taskMod.createTask(inputValues[0]);
         return newTask;
+    }
+
+    function addModalNonInputs (valueArr) {
+        valueArr.push (taskDescr.value);
+        valueArr.push (taskPrio.value);
     }
 
     function closeModal (modal) {

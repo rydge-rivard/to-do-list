@@ -44,8 +44,6 @@ const loadPage = (function () {
     const cook = taskMod.createTask ('Cook', 'tagine', Date(), 'Medium', moroccoTasks.length);
     taskMod.assignTask (cook, moroccoTasks);
 
-    projectMod.createFromBtn ('test', projectMod.projects);
-
     projectMod.projects.push (projectMod.createProject ('Morocco', moroccoTasks));
     projectMod.projects.push (projectMod.createProject ('Today', todayTasks));
 
