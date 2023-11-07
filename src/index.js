@@ -61,12 +61,12 @@ const loadPage = (function () {
     projectMod.projects.push (projectMod.createProject ('Morocco', moroccoTasks));
     projectMod.projects.push (projectMod.createProject ('Meal Plan', mealTasks));
 
+    storMod.checkStorage (projectMod.projects)
+
     useDOM.renderDisplay (projectMod.projects[0], gridContainer);
     useDOM.renderSidebar (projectMod.projects, sidebarContent, 'div', gridContainer)
 
     modalMod.createProjectOptions (projectMod.projects);
-
-    // storMod.storeProj();
     
 })();
 
