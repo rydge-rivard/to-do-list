@@ -14,6 +14,7 @@ const loadPage = (function () {
     useDOM.addToHTML (gridContainer, htmlContent);
     useDOM.addToHTML (sidebarContent, gridContainer);
 
+    useDOM.createImg ('./img/list-blck.svg', '40px', 'List with checks icon.', headerContent);
     useDOM.addToHTML (useDOM.createTextElement ('h2', 'To Do List'), headerContent);
 
     const addProjBtn = useDOM.createClassTextElement ('button', 'Add Project', 'add-project');

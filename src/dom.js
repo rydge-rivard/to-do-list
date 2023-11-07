@@ -37,6 +37,7 @@ const useDOM = (function () {
             addToHTML (rowCont, location);
             const rowIcons = createTaskRow (rowCont);
             const taskTitle = appendProj (task, rowIcons, 'div');
+            const editIcon = createImg ('./img/pencil.svg', '20px', 'Trash bin icon.', rowIcons);
             const deleteIcon = createImg ('./img/delete.svg', '20px', 'Trash bin icon.', rowIcons);
             const taskDetails = createHiddenDetails (task, rowCont);
             bindEvents (taskTitle, 'click', () => toggleDetails (task, taskDetails));
@@ -141,6 +142,7 @@ const useDOM = (function () {
         deleteSidebar: deleteSidebar,
         refreshSidebar: refreshSidebar,
         capFirstLetter: capFirstLetter,
+        createImg: createImg,
     }
 
 })();
