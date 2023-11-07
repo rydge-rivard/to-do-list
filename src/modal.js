@@ -69,7 +69,9 @@ const modalMod = (function () {
         const inputValues = sortInputs(inputArr);
         addModalNonInputs (inputValues)
         const newTask = taskMod.createTask(inputValues[0], 
-            inputValues[2], inputValues[1], inputValues[3], project.taskList.length);
+            inputValues[2], inputValues[1], inputValues[3], 
+            `${inputValues[0]}-id#${project.taskList.length}`);
+            console.log (newTask.id);
         return newTask;
     }
 

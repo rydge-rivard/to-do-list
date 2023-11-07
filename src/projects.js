@@ -12,6 +12,12 @@ const projectMod = (function () {
         projectsArr.push (createProject (title, []));
     }
 
+    function removeObjTask (projectTaskList, taskId) {
+        projectTaskList.forEach(task => {
+            task.id === taskId ? projectTaskList.splice(projectTaskList.indexOf(task), 1) : false;
+        });
+    }
+
     return {
         createProject: createProject,
         createFromBtn, createFromBtn,

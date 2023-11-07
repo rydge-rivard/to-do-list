@@ -30,25 +30,24 @@ const useDOM = (function () {
         return newElement;
     }
 
-    function appendAllTasks (taskArr, location) {
+    function appendAllTasks (project, taskArr, location) {
         taskArr.forEach(task => {
             const rowCont  = createContainer ('row-cont', 'div');
             addToHTML (rowCont, location);
-            const title = createTaskRow (task, rowCont);
+            const rowIcons = createTaskRow (rowCont);
+            const taskTitle = appendProj (task, rowIcons, 'div');
+            const deleteIcon = createImg ('./img/delete.svg', '20px', 'Trash bin icon.', rowIcons);
             const taskDetails = createHiddenDetails (task, rowCont);
-            bindEvents (title, 'click', () => toggleDetails (task, taskDetails));
+            bindEvents (taskTitle, 'click', () => toggleDetails (task, taskDetails));
             bindEvents (taskDetails, 'click', () => toggleDetails (task, taskDetails));
+            bindEvents (deleteIcon, 'click', () => deleteTask (project, task, rowCont));
         });
     }
 
-    function createTaskRow (task, parent) {
+    function createTaskRow (parent) {
         const rowIcons  = createContainer ('row-icon', 'div');
         addToHTML (rowIcons, parent);
-
-        const taskTitle = appendProj (task, rowIcons, 'div');
-
-        createImg ('./img/delete.svg', '20px', 'Trash bin icon.', rowIcons);
-        return taskTitle;
+        return rowIcons;
     }
 
     function createImg (src, width, alt, parent) {
@@ -57,6 +56,7 @@ const useDOM = (function () {
         img.setAttribute("width", width);
         img.setAttribute("alt", alt);
         parent.appendChild(img);
+        return img;
     }
 
     function bindEvents (element, event, action) {
@@ -69,6 +69,13 @@ const useDOM = (function () {
         } else {
             element.style.display = 'none';
         }
+    }
+
+    function deleteTask (project, task, container) {
+        console.log (project);
+        console.log (task);
+        console.log (container);
+        container.remove ();
     }
 
     function createHiddenDetails (obj, location) {
@@ -89,7 +96,7 @@ const useDOM = (function () {
         addToHTML (displayContent, parent);
 
         appendProj (project, displayContent, 'h3');
-        appendAllTasks (project.taskList, displayContent);
+        appendAllTasks (project, project.taskList, displayContent);
     }
 
     function refreshSidebar (projArr, childLocation, element) {
