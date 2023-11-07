@@ -33,9 +33,18 @@ const useDOM = (function () {
     function appendAllTasks (taskArr, location) {
         taskArr.forEach(task => {
             const element = appendProj (task, location, 'div');
+            createImg ('./img/delete.svg', '20px', 'Trash bin icon.', element)
             const taskDetails = createHiddenDetails (task, element);
             bindEvents (element, 'click', () => toggleDetails (task, taskDetails));
         });
+    }
+
+    function createImg (src, width, alt, parent) {
+        const element = document.createElement('img')
+        element.setAttribute("src", src);
+        element.setAttribute("width", width);
+        element.setAttribute("alt", alt);
+        parent.appendChild(element);
     }
 
     function bindEvents (element, event, action) {
@@ -110,7 +119,7 @@ const useDOM = (function () {
         refreshDisplay: refreshDisplay,
         deleteSidebar: deleteSidebar,
         refreshSidebar: refreshSidebar,
-        capFirstLetter:capFirstLetter,
+        capFirstLetter: capFirstLetter,
     }
 
 })();
