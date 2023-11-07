@@ -67,7 +67,7 @@ dialog {
     border: none;
     border-radius: 9px;
     position: absolute;
-    top: 30%;
+    top: 18%;
     left: 40%;
     padding: 30px 60px 20px;
 }
@@ -101,12 +101,18 @@ dialog div {
 }
 
 input,
-select {
+select,
+textarea {
     box-sizing: border-box;
     padding: 4px 8px;
     width: 320px;
     margin: 6px 0 0 0;
     font-size: 14px;
+    font-family: 'Raleway', sans-serif;
+}
+
+textarea {
+    resize: none;
 }
 
 label {
