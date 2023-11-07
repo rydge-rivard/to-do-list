@@ -1,4 +1,5 @@
 export {useDOM} 
+import { modalMod } from "./modal.js";
 import { projectMod } from "./projects.js";
 import { taskMod } from "./tasks.js";
 
@@ -43,6 +44,7 @@ const useDOM = (function () {
             bindEvents (taskTitle, 'click', () => toggleDetails (task, taskDetails));
             bindEvents (taskDetails, 'click', () => toggleDetails (task, taskDetails));
             bindEvents (deleteIcon, 'click', () => deleteTask (project, task, rowCont));
+            bindEvents (editIcon, 'click', () => modalMod.editTaskDetails(task));
         });
     }
 
@@ -144,5 +146,4 @@ const useDOM = (function () {
         capFirstLetter: capFirstLetter,
         createImg: createImg,
     }
-
 })();

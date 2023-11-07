@@ -51,8 +51,6 @@ const loadPage = (function () {
     useDOM.renderDisplay (projectMod.projects[0], gridContainer);
     useDOM.renderSidebar (projectMod.projects, sidebarContent, 'div', gridContainer)
 
-    //need to re-render this after a new projec is added
-    //cross this bridge when working on add proj btn
     modalMod.createProjectOptions (projectMod.projects);
     
 })();
