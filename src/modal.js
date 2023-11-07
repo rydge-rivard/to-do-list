@@ -7,7 +7,7 @@ const modalMod = (function () {
 
     const taskDialog = document.querySelector ('.task-dialog');
     const taskInputs = taskDialog.querySelectorAll ('input');
-    const select = taskDialog.querySelector ('select');
+    const select = taskDialog.querySelector ('#project-sel');
 
     const projDialog = document.querySelector ('.proj-dialog');
     const projInputs = projDialog.querySelector ('input');
@@ -33,7 +33,7 @@ const modalMod = (function () {
     }
 
     function removeProjOptions () {
-        const projOptions = taskDialog.querySelectorAll ('option');
+        const projOptions = select.querySelectorAll ('option');
         projOptions.forEach(option => option.remove());
     }
 
@@ -45,7 +45,7 @@ const modalMod = (function () {
     }
 
     function getSelectedProj () {
-        return taskDialog.querySelector ('select').value;
+        return taskDialog.querySelector ('#project-sel').value;
     }
 
     function findSelectedProj () {
