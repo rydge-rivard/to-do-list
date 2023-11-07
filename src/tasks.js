@@ -19,8 +19,10 @@ const taskMod = (function () {
 
     function addTaskData (obj, parent) {
         for (const key in obj) {
-            const field = `${key}: ${obj[key]}`;
-            useDOM.addToHTML (useDOM.createTextElement ('div', field), parent);
+            if (key !== 'id') {
+                const field = `${useDOM.capFirstLetter (key)}: ${obj[key]}`;
+                useDOM.addToHTML (useDOM.createTextElement ('div', field), parent);
+            } 
         }
     }
 

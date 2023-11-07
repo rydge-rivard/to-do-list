@@ -92,6 +92,10 @@ const useDOM = (function () {
         sidebarDivs.forEach(proj => proj.remove());
     }
 
+    function capFirstLetter (str) {
+        return str.charAt(0).toUpperCase() + str.slice(1);
+    }
+
     return {
         createTextElement: createTextElement,
         addToHTML: addToHTML,
@@ -106,6 +110,7 @@ const useDOM = (function () {
         refreshDisplay: refreshDisplay,
         deleteSidebar: deleteSidebar,
         refreshSidebar: refreshSidebar,
+        capFirstLetter:capFirstLetter,
     }
 
 })();
