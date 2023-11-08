@@ -5,14 +5,12 @@ const storMod = (function () {
 
     function storeProj (projectsArr) {
         localStorage.setItem("projects", JSON.stringify (projectsArr));
-        console.log ('Remove from local storage.')
-        console.log (JSON.parse(localStorage.getItem("projects")));
-        setProjArr ();
+        console.log (projectMod.projects);
     }
 
     function checkStorage (projectsArr) {
         if (!localStorage.getItem ("projects")) {
-            console.log ('no storage')
+            console.log ('no existing storage')
             storeProj (projectsArr);
           } else {
             setProjArr ();
@@ -21,7 +19,6 @@ const storMod = (function () {
 
     function setProjArr () {
         projectMod.projects = JSON.parse(localStorage.getItem("projects"));
-        console.log (projectMod.projects);
     }
 
     return {

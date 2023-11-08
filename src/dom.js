@@ -76,9 +76,7 @@ const useDOM = (function () {
     }
 
     function deleteTask (project, task, container) {
-        console.log ('Remove from array.');
         projectMod.removeObjTask (project.taskList, task.id);
-        console.log (project);
         container.remove ();
         storMod.storeProj (projectMod.projects);
     }
