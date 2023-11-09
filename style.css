@@ -1,158 +1,158 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&family=Roboto:wght@300;400;500;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&family=Roboto:wght@300;400;500;700&display=swap");
 
 body {
-    font-family: 'Raleway', sans-serif;
-    margin: 0;
+  font-family: "Raleway", sans-serif;
+  margin: 0;
 }
 
 body * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .header {
-    display: flex;
-    justify-content: space-between;
-    padding: 16px 28px;
-    background-color: #FFD449;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 28px;
+  background-color: #ffd449;
+  align-items: center;
 }
 
 .header h2 {
-    flex: 1;
-    margin: 0 0 0 6px;
+  flex: 1;
+  margin: 0 0 0 6px;
 }
 
 h3 {
-    font-weight: 600;
+  font-weight: 600;
 }
 
 button {
-    padding: 8px 14px;
-    border-radius: 18px;
-    border: none;
-    background-color: #333024;
-    color: white;
-    margin: 0 0 0 12px;
+  padding: 8px 14px;
+  border-radius: 18px;
+  border: none;
+  background-color: #333024;
+  color: white;
+  margin: 0 0 0 12px;
 }
 
 button:hover {
-    cursor: pointer;
-    background-color: #484433;
+  cursor: pointer;
+  background-color: #484433;
 }
 
 .grid {
-    display: grid;
-    grid-template-columns: minmax(auto, 220px) 3fr;
-    grid-template-rows: minmax(750px, 1fr);
+  display: grid;
+  grid-template-columns: minmax(auto, 220px) 3fr;
+  grid-template-rows: minmax(750px, 1fr);
 }
 
 .display {
-    padding: 32px 60px;
+  padding: 32px 60px;
 }
 
 .active {
-    background-color: #F7F7F7;
-    box-shadow: 5px 5px 10px -10px;
-    padding: 16px;
-    margin: 12px 0;
+  background-color: #f7f7f7;
+  box-shadow: 5px 5px 10px -10px;
+  padding: 16px;
+  margin: 12px 0;
 }
 
 dialog {
-    box-shadow: 5px 5px 10px -10px;
-    border: none;
-    border-radius: 9px;
-    position: absolute;
-    top: 18%;
-    left: 40%;
-    padding: 30px 60px 20px;
+  box-shadow: 5px 5px 10px -10px;
+  border: none;
+  border-radius: 9px;
+  position: absolute;
+  top: 18%;
+  left: 40%;
+  padding: 30px 60px 20px;
 }
 
 fieldset {
-    padding: 12px;
-    border: none;
-    display: grid;
-    grid-auto-columns: min-content;
+  padding: 12px;
+  border: none;
+  display: grid;
+  grid-auto-columns: min-content;
 }
 
-ul, 
+ul,
 li {
-    margin: 0;
-    padding: 0;
-    list-style: none;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 li {
-    padding: 12px 0;
-    font-size: 14px;
+  padding: 12px 0;
+  font-size: 14px;
 }
 
 dialog button {
-    margin: 6px;
+  margin: 6px;
 }
 
 dialog div {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 input,
 select,
 textarea {
-    box-sizing: border-box;
-    padding: 4px 8px;
-    width: 320px;
-    margin: 6px 0 0 0;
-    font-size: 14px;
-    font-family: 'Raleway', sans-serif;
+  box-sizing: border-box;
+  padding: 4px 8px;
+  width: 320px;
+  margin: 6px 0 0 0;
+  font-size: 14px;
+  font-family: "Raleway", sans-serif;
 }
 
 textarea {
-    resize: none;
+  resize: none;
 }
 
 label {
-    margin: 0 0 8px 0;
+  margin: 0 0 8px 0;
 }
 
 legend {
-    font-weight: 600;
-    font-size: 18px;
+  font-weight: 600;
+  font-size: 18px;
 }
 
 .display div:hover,
 .sidebar div:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .sidebar {
-    background-color: #F7F7F7;
-    padding: 32px;
+  background-color: #f7f7f7;
+  padding: 32px;
 }
 
 .sidebar div {
-    padding: 6px 12px;
-    border-radius: 8px;
+  padding: 6px 12px;
+  border-radius: 8px;
 }
 
 .sidebar div:hover {
-    background-color: #333024;
-    color: white;
+  background-color: #333024;
+  color: white;
 }
 
 .display div,
 .sidebar div {
-    margin: 6px 0;
+  margin: 6px 0;
 }
 
 .row-icon {
-    display: flex;
+  display: flex;
 }
 
 .row-icon > div {
-    flex: 1;
+  flex: 1;
 }
 
 .grid img:hover {
-    margin: 0 0 4px 0;
+  margin: 0 0 4px 0;
 }
