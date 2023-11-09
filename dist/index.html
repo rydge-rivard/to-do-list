@@ -1,69 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>To Do List</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
     <script src="./main.js" defer></script>
-    <link rel="shortcut icon" href="img/format-list-checks.svg" type="image/x-icon">
-</head>
-<body>
+    <link
+      rel="shortcut icon"
+      href="img/format-list-checks.svg"
+      type="image/x-icon"
+    />
+  </head>
+  <body>
     <div id="content"></div>
     <dialog class="task-dialog">
-        <form action="" method="">
-            <fieldset>
-                <legend>Add New Task</legend>
-                <ul>
-                    <li>
-                        <label for="title">Title</label>
-                        <input type="text" name="title" id="title">
-                    </li>
-                    <li>
-                        <label for="descr">Description</label>
-                        <textarea name="description" id="descr" cols="30" rows="3"></textarea>
-                    </li>
-                    <li>
-                        <label for="due">Due Date</label>
-                        <input type="date" name="duedate" id="due">
-                    </li>
-                    <li>
-                        <label for="priority">Priority</label>
-                        <select id="priority" name="priority">
-                            <option value="None" selected="selected">None</option>
-                            <option value="Low">Low</option>
-                            <option value="Medium">Medium</option>
-                            <option value="High">High</option>
-                        </select>
-                    </li>
-                    <li>
-                        <label for="project-sel">Project</label>
-                        <select id="project-sel" name="project"></select>
-                    </li>
-                </ul>
-            </fieldset>
-            <div>
-                <button value="cancel" formmethod="dialog">Cancel</button>
-                <button id="confirmTask" value="default">Submit</button>
-            </div>
-        </form>
+      <form action="" method="">
+        <fieldset>
+          <legend>Add New Task</legend>
+          <ul>
+            <li>
+              <label for="title">Title</label>
+              <input type="text" name="title" id="title" />
+            </li>
+            <li>
+              <label for="descr">Description</label>
+              <textarea
+                name="description"
+                id="descr"
+                cols="30"
+                rows="3"
+              ></textarea>
+            </li>
+            <li>
+              <label for="due">Due Date</label>
+              <input type="date" name="duedate" id="due" />
+            </li>
+            <li>
+              <label for="priority">Priority</label>
+              <select id="priority" name="priority">
+                <option value="None" selected="selected">None</option>
+                <option value="Low">Low</option>
+                <option value="Medium">Medium</option>
+                <option value="High">High</option>
+              </select>
+            </li>
+            <li>
+              <label for="project-sel">Project</label>
+              <select id="project-sel" name="project"></select>
+            </li>
+          </ul>
+        </fieldset>
+        <div>
+          <button value="cancel" formmethod="dialog">Cancel</button>
+          <button id="confirmTask" value="default">Submit</button>
+        </div>
+      </form>
     </dialog>
     <dialog class="proj-dialog">
-        <form action="" method="">
-            <fieldset>
-                <legend>Add New Project</legend>
-                <ul>
-                    <li>
-                        <label for="proj-title">Project Title</label>
-                        <input type="text" name="proj-title" id="proj-title">
-                    </li>
-                </ul>
-            </fieldset>
-            <div>
-                <button value="cancel" formmethod="dialog">Cancel</button>
-                <button id="confirmProj" value="default">Submit</button>
-            </div>
-        </form>
+      <form action="" method="">
+        <fieldset>
+          <legend>Add New Project</legend>
+          <ul>
+            <li>
+              <label for="proj-title">Project Title</label>
+              <input type="text" name="proj-title" id="proj-title" />
+            </li>
+          </ul>
+        </fieldset>
+        <div>
+          <button value="cancel" formmethod="dialog">Cancel</button>
+          <button id="confirmProj" value="default">Submit</button>
+        </div>
+      </form>
     </dialog>
-</body>
+  </body>
 </html>
